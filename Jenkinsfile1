@@ -46,7 +46,7 @@ pipeline{
 		}
 	 }
 	 	
-	  stage(Deploy app using ansible){
+	  stage('Deploy app using ansible'){
 	    steps{
 		ansiblePlaybook credentialsId: 'ssh-key', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'deploy.yml'
 		}
