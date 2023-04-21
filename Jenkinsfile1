@@ -42,11 +42,11 @@ pipeline{
 		
 	  stage('push Image to DockerHub'){
 	    steps{
-		sh 'docker push aditya3328/insure-me:latest .'
+		sh 'docker push aditya3328/insure-me:latest'
 		}
 	 }
 	 	
-	  stage(Deploy app using ansible){
+	  stage('Deploy app using ansible'){
 	    steps{
 		ansiblePlaybook credentialsId: 'ssh-key', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'deploy.yml'
 		}
